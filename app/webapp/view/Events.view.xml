@@ -2,9 +2,68 @@
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m"
   controllerName="agenda.controller.Events">
-  <Page title="Maintain Events">
+  <Page title="Maintain Events" showNavButton="true" navButtonPress="onNavBack">
     <content>
-      <!-- TODO: Add CRUD UI for Events -->
+      <SplitApp id="eventsSplitApp" mode="ShowHideMode">
+        <masterPages>
+          <Page title="Events">
+            <subHeader>
+              <OverflowToolbar>
+                <SearchField width="100%" liveChange="onFilterEvents" placeholder="Filter events"/>
+                <ToolbarSpacer/>
+                <Button text="Add" type="Emphasized" press="onAddEvent"/>
+              </OverflowToolbar>
+            </subHeader>
+            <content>
+              <List
+                id="eventsList"
+                mode="SingleSelectMaster"
+                selectionChange="onEventSelect"
+                items="{/events}">
+                <StandardListItem title="{title}" description="{date}" type="Active"/>
+              </List>
+            </content>
+          </Page>
+        </masterPages>
+        <detailPages>
+          <Page title="Event Details">
+            <content>
+              <VBox class="sapUiResponsiveContentPadding" renderType="Bare">
+                <Label text="ID"/>
+                <Input value="{/selectedEvent/ID}" editable="false"/>
+
+                <Label text="Title" class="sapUiSmallMarginTop"/>
+                <Input value="{/selectedEvent/title}" enabled="{= ${/selectedEvent} !== null }"/>
+
+                <Label text="Date" class="sapUiSmallMarginTop"/>
+                <DatePicker
+                  value="{/selectedEvent/date}"
+                  valueFormat="yyyy-MM-dd"
+                  displayFormat="medium"
+                  enabled="{= ${/selectedEvent} !== null }"/>
+
+                <Label text="Group" class="sapUiSmallMarginTop"/>
+                <Select selectedKey="{/selectedEvent/group_ID_ID}" enabled="{= ${/selectedEvent} !== null }" items="{/groups}">
+                  <core:Item xmlns:core="sap.ui.core" key="{ID}" text="{name}"/>
+                </Select>
+
+                <Label text="Location ID (optional)" class="sapUiSmallMarginTop"/>
+                <Input value="{/selectedEvent/location_ID_ID}" enabled="{= ${/selectedEvent} !== null }"/>
+
+                <Label text="Person ID (optional)" class="sapUiSmallMarginTop"/>
+                <Input value="{/selectedEvent/person_ID_ID}" enabled="{= ${/selectedEvent} !== null }"/>
+              </VBox>
+            </content>
+            <footer>
+              <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="Delete" type="Negative" press="onDeleteEvent" enabled="{= ${/selectedEvent} !== null }"/>
+                <Button text="Save Changes" type="Emphasized" press="onSaveEvent" enabled="{= ${/selectedEvent} !== null }"/>
+              </OverflowToolbar>
+            </footer>
+          </Page>
+        </detailPages>
+      </SplitApp>
     </content>
   </Page>
 </mvc:View>

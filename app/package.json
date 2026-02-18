@@ -4,6 +4,7 @@
   "private": true,
   "description": "SAPUI5 frontend for Agenda app",
   "scripts": {
+    "prestart": "node ../scripts/stop-running.js 8080 8081 8082 8083 8084 8085",
     "start": "ui5 serve -o /index.html"
   },
   "dependencies": {

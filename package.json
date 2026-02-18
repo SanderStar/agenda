@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "CAP backend for Agenda app",
   "scripts": {
-    "start": "cds run"
+    "stop:all": "node scripts/stop-running.js 4004 8080 8081 8082 8083 8084 8085",
+    "stop:backend": "node scripts/stop-running.js 4004",
+    "stop:ui": "node scripts/stop-running.js 8080 8081 8082 8083 8084 8085",
+    "start": "npm run stop:backend && cds run",
+    "start:backend": "npm run start",
+    "start:ui": "npm run stop:ui && npm --prefix app start",
+    "dev": "npm run stop:all && concurrently -k -n backend,ui -c green,cyan \"npm run start:backend\" \"npm run start:ui\""
   },
   "cds": {
     "requires": {
@@ -16,5 +22,8 @@
   "dependencies": {
     "@cap-js/sqlite": "^1.8.0",
     "@sap/cds": "^7.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
