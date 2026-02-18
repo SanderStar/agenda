@@ -16,6 +16,8 @@ entity Event {
   key ID        : UUID;
   title         : String(100);
   date          : Date;
+  startTime     : Time not null;
+  endTime       : Time not null;
   location_ID   : Association to Location;
   person_ID     : Association to Person;
   group_ID      : Association to Group not null;

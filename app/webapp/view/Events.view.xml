@@ -20,7 +20,7 @@
                 mode="SingleSelectMaster"
                 selectionChange="onEventSelect"
                 items="{/events}">
-                <StandardListItem title="{title}" description="{date}" type="Active"/>
+                <StandardListItem title="{title}" description="{= ${date} + '  ' + ${startTime} + ' - ' + ${endTime} }" type="Active"/>
               </List>
             </content>
           </Page>
@@ -40,6 +40,20 @@
                   value="{/selectedEvent/date}"
                   valueFormat="yyyy-MM-dd"
                   displayFormat="medium"
+                  enabled="{= ${/selectedEvent} !== null }"/>
+
+                <Label text="Start Time" class="sapUiSmallMarginTop"/>
+                <TimePicker
+                  value="{/selectedEvent/startTime}"
+                  valueFormat="HH:mm:ss"
+                  displayFormat="HH:mm"
+                  enabled="{= ${/selectedEvent} !== null }"/>
+
+                <Label text="End Time" class="sapUiSmallMarginTop"/>
+                <TimePicker
+                  value="{/selectedEvent/endTime}"
+                  valueFormat="HH:mm:ss"
+                  displayFormat="HH:mm"
                   enabled="{= ${/selectedEvent} !== null }"/>
 
                 <Label text="Group" class="sapUiSmallMarginTop"/>

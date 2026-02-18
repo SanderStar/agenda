@@ -55,6 +55,8 @@ sap.ui.define([
         ID: sId,
         title: "New Event",
         date: sToday,
+        startTime: "09:00:00",
+        endTime: "10:00:00",
         group_ID_ID: aGroups[0].ID
       };
 
@@ -90,9 +92,21 @@ sap.ui.define([
         return;
       }
 
+      if (!oSelectedEvent.startTime || !oSelectedEvent.endTime) {
+        MessageToast.show("Start time and end time are required");
+        return;
+      }
+
+      if (oSelectedEvent.endTime <= oSelectedEvent.startTime) {
+        MessageToast.show("End time must be after start time");
+        return;
+      }
+
       var oPayload = {
         title: oSelectedEvent.title.trim(),
         date: oSelectedEvent.date,
+        startTime: oSelectedEvent.startTime,
+        endTime: oSelectedEvent.endTime,
         group_ID_ID: oSelectedEvent.group_ID_ID,
         location_ID_ID: oSelectedEvent.location_ID_ID || null,
         person_ID_ID: oSelectedEvent.person_ID_ID || null
