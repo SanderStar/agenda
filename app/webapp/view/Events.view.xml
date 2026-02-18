@@ -9,9 +9,9 @@
           <Page title="Events">
             <subHeader>
               <OverflowToolbar>
-                <SearchField width="100%" liveChange="onFilterEvents" placeholder="Filter events"/>
+                <SearchField id="eventSearchField" width="100%" liveChange="onFilterEvents" placeholder="Filter events"/>
                 <ToolbarSpacer/>
-                <Button text="Add" type="Emphasized" press="onAddEvent"/>
+                <Button id="addEventButton" text="Add" type="Emphasized" press="onAddEvent"/>
               </OverflowToolbar>
             </subHeader>
             <content>
@@ -30,13 +30,14 @@
             <content>
               <VBox class="sapUiResponsiveContentPadding" renderType="Bare">
                 <Label text="ID"/>
-                <Input value="{/selectedEvent/ID}" editable="false"/>
+                <Input id="eventIdInput" value="{/selectedEvent/ID}" editable="false"/>
 
                 <Label text="Title" class="sapUiSmallMarginTop"/>
-                <Input value="{/selectedEvent/title}" enabled="{= ${/selectedEvent} !== null }"/>
+                <Input id="eventTitleInput" value="{/selectedEvent/title}" enabled="{= ${/selectedEvent} !== null }"/>
 
                 <Label text="Date" class="sapUiSmallMarginTop"/>
                 <DatePicker
+                  id="eventDateInput"
                   value="{/selectedEvent/date}"
                   valueFormat="yyyy-MM-dd"
                   displayFormat="medium"
@@ -44,6 +45,7 @@
 
                 <Label text="Start Time" class="sapUiSmallMarginTop"/>
                 <TimePicker
+                  id="eventStartTimeInput"
                   value="{/selectedEvent/startTime}"
                   valueFormat="HH:mm:ss"
                   displayFormat="HH:mm"
@@ -51,28 +53,29 @@
 
                 <Label text="End Time" class="sapUiSmallMarginTop"/>
                 <TimePicker
+                  id="eventEndTimeInput"
                   value="{/selectedEvent/endTime}"
                   valueFormat="HH:mm:ss"
                   displayFormat="HH:mm"
                   enabled="{= ${/selectedEvent} !== null }"/>
 
                 <Label text="Group" class="sapUiSmallMarginTop"/>
-                <Select selectedKey="{/selectedEvent/group_ID_ID}" enabled="{= ${/selectedEvent} !== null }" items="{/groups}">
+                <Select id="eventGroupSelect" selectedKey="{/selectedEvent/group_ID_ID}" enabled="{= ${/selectedEvent} !== null }" items="{/groups}">
                   <core:Item xmlns:core="sap.ui.core" key="{ID}" text="{name}"/>
                 </Select>
 
                 <Label text="Location ID (optional)" class="sapUiSmallMarginTop"/>
-                <Input value="{/selectedEvent/location_ID_ID}" enabled="{= ${/selectedEvent} !== null }"/>
+                <Input id="eventLocationInput" value="{/selectedEvent/location_ID_ID}" enabled="{= ${/selectedEvent} !== null }"/>
 
                 <Label text="Person ID (optional)" class="sapUiSmallMarginTop"/>
-                <Input value="{/selectedEvent/person_ID_ID}" enabled="{= ${/selectedEvent} !== null }"/>
+                <Input id="eventPersonInput" value="{/selectedEvent/person_ID_ID}" enabled="{= ${/selectedEvent} !== null }"/>
               </VBox>
             </content>
             <footer>
               <OverflowToolbar>
                 <ToolbarSpacer/>
-                <Button text="Delete" type="Negative" press="onDeleteEvent" enabled="{= ${/selectedEvent} !== null }"/>
-                <Button text="Save Changes" type="Emphasized" press="onSaveEvent" enabled="{= ${/selectedEvent} !== null }"/>
+                <Button id="deleteEventButton" text="Delete" type="Negative" press="onDeleteEvent" enabled="{= ${/selectedEvent} !== null }"/>
+                <Button id="saveEventButton" text="Save Changes" type="Emphasized" press="onSaveEvent" enabled="{= ${/selectedEvent} !== null }"/>
               </OverflowToolbar>
             </footer>
           </Page>

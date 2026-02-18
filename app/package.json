@@ -5,10 +5,15 @@
   "description": "SAPUI5 frontend for Agenda app",
   "scripts": {
     "prestart": "node ../scripts/stop-running.js 8080 8081 8082 8083 8084 8085",
-    "start": "ui5 serve -o /index.html"
+    "start": "ui5 serve -o /index.html",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@ui5/cli": "^4.0.44",
     "ui5-middleware-simpleproxy": "^3.4.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
   }
 }

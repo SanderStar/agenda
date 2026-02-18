@@ -9,7 +9,9 @@
     "start": "npm run stop:backend && cds run",
     "start:backend": "npm run start",
     "start:ui": "npm run stop:ui && npm --prefix app start",
-    "dev": "npm run stop:all && concurrently -k -n backend,ui -c green,cyan \"npm run start:backend\" \"npm run start:ui\""
+    "dev": "npm run stop:all && concurrently -k -n backend,ui -c green,cyan \"npm run start:backend\" \"npm run start:ui\"",
+    "test:e2e": "npm --prefix app run e2e",
+    "test:e2e:ui": "npm --prefix app run e2e:ui"
   },
   "cds": {
     "requires": {

@@ -9,9 +9,9 @@
           <Page title="Groups">
             <subHeader>
               <OverflowToolbar>
-                <SearchField width="100%" liveChange="onFilterGroups" placeholder="Filter groups"/>
+                <SearchField id="groupSearchField" width="100%" liveChange="onFilterGroups" placeholder="Filter groups"/>
                 <ToolbarSpacer/>
-                <Button text="Add" type="Emphasized" press="onAddGroup"/>
+                <Button id="addGroupButton" text="Add" type="Emphasized" press="onAddGroup"/>
               </OverflowToolbar>
             </subHeader>
             <content>
@@ -28,20 +28,20 @@
         <detailPages>
           <Page title="Group Details">
             <content>
-              <VBox class="agendaGroupDetail sapUiResponsiveContentPadding" renderType="Bare">
+              <VBox class="sapUiResponsiveContentPadding" renderType="Bare">
                 <Label text="ID"/>
-                <Input value="{/selectedGroup/ID}" editable="false"/>
+                <Input id="groupIdInput" value="{/selectedGroup/ID}" editable="false"/>
                 <Label text="Name" class="sapUiSmallMarginTop"/>
-                <Input value="{/selectedGroup/name}" enabled="{= ${/selectedGroup} !== null }"/>
+                <Input id="groupNameInput" value="{/selectedGroup/name}" enabled="{= ${/selectedGroup} !== null }"/>
                 <Label text="Description" class="sapUiSmallMarginTop"/>
-                <TextArea value="{/selectedGroup/description}" rows="4" enabled="{= ${/selectedGroup} !== null }"/>
+                <TextArea id="groupDescriptionInput" value="{/selectedGroup/description}" rows="4" enabled="{= ${/selectedGroup} !== null }"/>
               </VBox>
             </content>
             <footer>
               <OverflowToolbar>
                 <ToolbarSpacer/>
-                <Button text="Delete" type="Negative" press="onDeleteGroup" enabled="{= ${/selectedGroup} !== null }"/>
-                <Button text="Save Changes" type="Emphasized" press="onSaveGroup" enabled="{= ${/selectedGroup} !== null }"/>
+                <Button id="deleteGroupButton" text="Delete" type="Negative" press="onDeleteGroup" enabled="{= ${/selectedGroup} !== null }"/>
+                <Button id="saveGroupButton" text="Save Changes" type="Emphasized" press="onSaveGroup" enabled="{= ${/selectedGroup} !== null }"/>
               </OverflowToolbar>
             </footer>
           </Page>
