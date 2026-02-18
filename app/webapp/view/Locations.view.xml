@@ -1,0 +1,10 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="agenda.controller.Locations">
+  <Page title="Maintain Locations">
+    <content>
+      <!-- TODO: Add CRUD UI for Locations -->
+    </content>
+  </Page>
+</mvc:View>

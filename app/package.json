@@ -1,0 +1,13 @@
+{
+  "name": "agenda-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SAPUI5 frontend for Agenda app",
+  "scripts": {
+    "start": "ui5 serve -o /index.html"
+  },
+  "dependencies": {
+    "@ui5/cli": "^4.0.44",
+    "ui5-middleware-simpleproxy": "^3.4.0"
+  }
+}

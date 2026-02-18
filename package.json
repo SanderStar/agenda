@@ -1,0 +1,20 @@
+{
+  "name": "agenda-cap-backend",
+  "version": "1.0.0",
+  "description": "CAP backend for Agenda app",
+  "scripts": {
+    "start": "cds run"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "impl": "@cap-js/sqlite"
+      }
+    }
+  },
+  "dependencies": {
+    "@cap-js/sqlite": "^1.8.0",
+    "@sap/cds": "^7.0.0"
+  }
+}

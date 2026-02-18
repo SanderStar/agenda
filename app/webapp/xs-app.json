@@ -1,0 +1,10 @@
+{
+  "/": {
+    "target": {
+      "service": "srv/",
+      "options": {
+        "kind": "odata-v4"
+      }
+    }
+  }
+}

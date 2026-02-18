@@ -1,0 +1,10 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="agenda.controller.Persons">
+  <Page title="Maintain Persons">
+    <content>
+      <!-- TODO: Add CRUD UI for Persons -->
+    </content>
+  </Page>
+</mvc:View>

@@ -1,0 +1,24 @@
+{
+  "sap.app": {
+    "dataSources": {
+      "AgendaService": {
+        "uri": "/odata/v4/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui5": {
+    "models": {
+      "": {
+        "dataSource": "AgendaService",
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.agendaMainContent {
+  width: 100%;
+}
+
+.agendaTilesWrapper {
+  width: 100%;
+}
+
+.agendaMainTile {
+  min-width: 14rem;
+}
+
+.agendaGroupDetail {
+  max-width: 56rem;
+}
+
+@media (max-width: 1024px) {
+  .agendaMainTile {
+    min-width: 12rem;
+  }
+
+  .agendaGroupDetail {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .agendaMainTile {
+    width: 100%;
+    min-width: 0;
+  }
+}

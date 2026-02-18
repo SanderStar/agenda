@@ -1,0 +1,10 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="agenda.controller.Events">
+  <Page title="Maintain Events">
+    <content>
+      <!-- TODO: Add CRUD UI for Events -->
+    </content>
+  </Page>
+</mvc:View>

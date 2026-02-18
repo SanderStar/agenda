@@ -1,0 +1,44 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="agenda.controller.Main">
+  <Page title="Agenda App">
+    <content>
+      <VBox class="agendaMainContent sapUiResponsiveContentPadding">
+      <Label text="Welcome to the Agenda App! Please select an option below:" class="sapUiSmallMarginBottom"/>
+      <FlexBox direction="Row" wrap="Wrap" alignItems="Stretch" justifyContent="Center" class="agendaTilesWrapper sapUiSmallMarginTopBottom">
+        <items>
+          <GenericTile header="Maintain Persons" press="onPersonsPress" class="agendaMainTile sapUiTinyMargin">
+            <tileContent>
+              <TileContent>
+                <Image src="sap-icon://person-placeholder" />
+              </TileContent>
+            </tileContent>
+          </GenericTile>
+          <GenericTile header="Maintain Locations" press="onLocationsPress" class="agendaMainTile sapUiTinyMargin">
+            <tileContent>
+              <TileContent>
+                <Image src="sap-icon://map" />
+              </TileContent>
+            </tileContent>
+          </GenericTile>
+          <GenericTile header="Maintain Events" press="onEventsPress" class="agendaMainTile sapUiTinyMargin">
+            <tileContent>
+              <TileContent>
+                <Image src="sap-icon://calendar" />
+              </TileContent>
+            </tileContent>
+          </GenericTile>
+          <GenericTile header="Maintain Groups" press="onGroupsPress" class="agendaMainTile sapUiTinyMargin">
+            <tileContent>
+              <TileContent>
+                <Image src="sap-icon://group" />
+              </TileContent>
+            </tileContent>
+          </GenericTile>
+        </items>
+      </FlexBox>
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>

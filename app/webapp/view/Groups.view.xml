@@ -1,0 +1,52 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="agenda.controller.Groups">
+  <Page title="Maintain Groups" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+      <SplitApp id="groupsSplitApp" mode="ShowHideMode">
+        <masterPages>
+          <Page title="Groups">
+            <subHeader>
+              <OverflowToolbar>
+                <SearchField width="100%" liveChange="onFilterGroups" placeholder="Filter groups"/>
+                <ToolbarSpacer/>
+                <Button text="Add" type="Emphasized" press="onAddGroup"/>
+              </OverflowToolbar>
+            </subHeader>
+            <content>
+              <List
+                id="groupsList"
+                mode="SingleSelectMaster"
+                selectionChange="onGroupSelect"
+                items="{/groups}">
+                <StandardListItem title="{name}" description="{description}" type="Active"/>
+              </List>
+            </content>
+          </Page>
+        </masterPages>
+        <detailPages>
+          <Page title="Group Details">
+            <content>
+              <VBox class="agendaGroupDetail sapUiResponsiveContentPadding" renderType="Bare">
+                <Label text="ID"/>
+                <Input value="{/selectedGroup/ID}" editable="false"/>
+                <Label text="Name" class="sapUiSmallMarginTop"/>
+                <Input value="{/selectedGroup/name}" enabled="{= ${/selectedGroup} !== null }"/>
+                <Label text="Description" class="sapUiSmallMarginTop"/>
+                <TextArea value="{/selectedGroup/description}" rows="4" enabled="{= ${/selectedGroup} !== null }"/>
+              </VBox>
+            </content>
+            <footer>
+              <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="Delete" type="Negative" press="onDeleteGroup" enabled="{= ${/selectedGroup} !== null }"/>
+                <Button text="Save Changes" type="Emphasized" press="onSaveGroup" enabled="{= ${/selectedGroup} !== null }"/>
+              </OverflowToolbar>
+            </footer>
+          </Page>
+        </detailPages>
+      </SplitApp>
+    </content>
+  </Page>
+</mvc:View>
